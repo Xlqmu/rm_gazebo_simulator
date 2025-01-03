@@ -10,6 +10,7 @@ def generate_launch_description():
         package="rviz2",
         executable="rviz2",
         name="rviz2",
+        namespace="red_standard_robot1",
         arguments=[
             "-d",
             os.path.join(
@@ -18,6 +19,7 @@ def generate_launch_description():
                 "visualize.rviz",
             ),
         ],
+        remappings=[("/tf", "tf"), ("/tf_static", "tf_static")],
     )
 
     ld = LaunchDescription()

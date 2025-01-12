@@ -65,7 +65,7 @@ function start_socket_transfer() {
                 keyboard: false
             }).modal('show');
             window.supplyStatus = message.value;
-    
+
             // 解绑鼠标
             document.exitPointerLock = document.exitPointerLock ||
                 document.mozExitPointerLock ||
@@ -78,8 +78,8 @@ function start_socket_transfer() {
         }
         else{
             window.supplyStatus = 'disactive';
-    
-            
+
+
         }
     });
     // socket.on('red_hp', function (message) {
@@ -143,7 +143,7 @@ function start_socket_transfer() {
         // Close the modal
         $('#supplyModal').modal('hide');
 
-        // trun into integer
+        // turn into integer
         ammo_request = parseInt(ammoAmount);
 
         // Send the ammo amount through socket
@@ -187,8 +187,3 @@ function start_socket_transfer() {
 //------------------------------------
 // 关闭连接
 //------------------------------------
-
-
-
-
-

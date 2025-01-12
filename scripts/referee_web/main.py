@@ -146,7 +146,7 @@ class RefereeSocketHandler(Namespace):
 
 # =============================================================================================================================
 
-# =====================================================================  funcitons   ==========================================
+# =====================================================================  functions   ==========================================
 
 
 # ==========================================
@@ -176,7 +176,7 @@ def send_refere_info_callback(robot_name):
 def ros_info_thread(node):
     global BLUE_HP, RED_HP, ATTACK_INFO
     for robot_name in robot_names:
-        hp_sub = node.create_subscription(
+        node.create_subscription(
             RobotStatus,
             "/referee_system/%s/robot_status" % (robot_name),
             send_refere_info_callback(robot_name),

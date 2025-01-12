@@ -26,7 +26,11 @@ from flask_socketio import Namespace, SocketIO, emit
 # ==========================================
 #    ros functions
 # ==========================================
-from ros_handler import *
+from ros_handler import (
+    publish_chassis_cmd_msg,
+    publish_gimbal_cmd_msg,
+    publish_shoot_cmd_msg,
+)
 from sensor_msgs.msg import Image
 
 from rmoss_interfaces.msg import (
@@ -127,11 +131,11 @@ class RobotSocketHandler(Namespace):
     def rfid_status_callback(self, message):
         for status in message.robot_rfid_status:
             if status.robot_name == self.robot_name:
-                if status.supplier_area_is_triggered == True:
+                if status.supplier_area_is_triggered is True:
                     self.rfid_status.supplier_area_is_triggered = True
                 else:
                     self.rfid_status.supplier_area_is_triggered = False
-                if status.center_area_is_triggered == True:
+                if status.center_area_is_triggered is True:
                     self.rfid_status.center_area_is_triggered = True
                 else:
                     self.rfid_status.center_area_is_triggered = False
@@ -153,7 +157,7 @@ class RobotSocketHandler(Namespace):
                 else:
                     print("Failed to exchange ammo: " + response.message)
             except Exception as e:
-                print("Service call failed: %r" % (e,))
+                print(f"Service call failed: {e!r}")
 
     def on_connect(self):
         global info_thread, node, robot_names, chosen_robot_dict
@@ -183,7 +187,7 @@ class RobotSocketHandler(Namespace):
         if message["shoot"]:
             shoot = True
         if message["o"]:
-            if self.rfid_status.supplier_area_is_triggered == True:
+            if self.rfid_status.supplier_area_is_triggered is True:
                 self.supply_active = True
                 emit("supply", {"value": "active"}, namespace="/" + self.robot_name)
 
@@ -257,7 +261,7 @@ class BaseSocketHandler(Namespace):
 
 # =============================================================================================================================
 
-# =====================================================================  funcitons   ==========================================
+# =====================================================================  functions   ==========================================
 
 
 # ==========================================
@@ -335,22 +339,18 @@ def send_refere_info_callback(robot_name):
 def ros_info_thread(node, robot_name):
     global BLUE_HP, RED_HP, ATTACK_INFO
     for robot_name in robot_names:
-        img_sub = node.create_subscription(
+        node.create_subscription(
             Image,
             "/%s/front_camera/image" % (robot_name),
             send_img_callback(robot_name),
             45,
         )
-        hp_sub = node.create_subscription(
+        node.create_subscription(
             RobotStatus,
             "/referee_system/%s/robot_status" % (robot_name),
             send_refere_info_callback(robot_name),
             10,
         )
-        # red_hp_sub = node.create_subscription(RobotStatus, '/referee_system/red_standard_robot1/robot_status', send_refere_info_callback(RED_HP, robot_name),
-        #                                 10)
-    # attack_info_sub = node.create_subscription(String, '/referee_system/attack_info', send_refere_info_callback(ATTACK_INFO),
-    # .                                    10)
     rclpy.spin(node)
     node.destroy_node()
 

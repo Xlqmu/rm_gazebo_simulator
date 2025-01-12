@@ -11,7 +11,7 @@ def generate_launch_description():
     pkg_simulator = get_package_share_directory("rmu_gazebo_simulator")
 
     gz_world_path = os.path.join(pkg_simulator, "config", "gz_world.yaml")
-    with open(gz_world_path, "r") as file:
+    with open(gz_world_path) as file:
         config = yaml.safe_load(file)
         selected_world = config.get("world")
 

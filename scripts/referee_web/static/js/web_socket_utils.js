@@ -27,7 +27,7 @@ function init_socket() {
     });
     socket.on('robot_names', function (message) {
         let robot_names = message.list
-        
+
         window.robot_names = [...robot_names]
         for (let i = 0; i < robot_names.length; i++) {
             console.log(robot_names[i])
@@ -65,7 +65,7 @@ function init_socket() {
                     </div>
                  </div>
                 <div class="rowcenter" style="width: 100%;height:10%">
-                
+
                     <div class="rowstart" style="width: 50%;margin-bottom: 10px;margin-right: 10px;height:100%">
                         <div class="rowcenter badge bg-light text-dark" style=" height:100%; font-size: 14px">弹药量
                         </div>
@@ -82,8 +82,8 @@ function init_socket() {
                 <button type="button" class="btn btn-danger" style="margin-bottom: 10px;width: 100%;height:13%;"
                     onclick="kill('${robot_names[i]}')">罚下</button>
             </div>
-        
-            
+
+
             `)
             // $('#choose_robot_container').append(`
             // <div class="ch_box"  onclick="select_robot(this,'${robot_names[i]}',${chosen_robot[robot_names[i]]===undefined || chosen_robot[robot_names[i]]===false})">
@@ -116,7 +116,7 @@ function revive(rob_name){
     }
     socket.emit('control', map);
     console.log('revive:'+rob_name)
-    
+
 }
 
 function kill(rob_name){
@@ -155,6 +155,3 @@ function reset_game(){
 //------------------------------------
 // 处理msg
 //------------------------------------
-
-
-

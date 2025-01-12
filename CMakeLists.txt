@@ -13,7 +13,7 @@ install(DIRECTORY
 )
 
 install(PROGRAMS
-    scripts/referee_system/simple_competition_1v1.py 
+    scripts/referee_system/simple_competition_1v1.py
 DESTINATION lib/${PROJECT_NAME})
 
 # environment

@@ -34,7 +34,7 @@ function select_robot(element, name, can_choose){
 	if(!can_choose) return
 	$("#choose_robot_container").children(".selected").removeClass('selected')
 	my_robot = name
-	$(element).addClass('selected') 
+	$(element).addClass('selected')
 	$('#start_btn').removeAttr("disabled");
 	console.log(my_robot)
 	$('#start_btn').text("开始游戏");

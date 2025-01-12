@@ -8,14 +8,14 @@ function fullscreenChange(e, game_container) {
 		document.mozFullscreenElement === elem ||
 		document.mozFullScreenElement === elem) { // 较旧的 API 大写 'S'.
 		// 元素进入全屏模式了，
-		
+
 		elem.requestPointerLock = elem.requestPointerLock ||
 			elem.mozRequestPointerLock ||
 			elem.webkitRequestPointerLock;
-			
-		
+
+
 		elem.requestPointerLock();
-		
+
 		// 开启案件监听
 		$(document).keydown(function(event) {
 			key_down_controller(event.keyCode)
@@ -23,7 +23,7 @@ function fullscreenChange(e, game_container) {
 		$(document).keyup(function(event) {
 			key_up_controller(event.keyCode)
 		});
-		
+
 		// 显示元素
 		game_container.show()
 
@@ -52,13 +52,13 @@ function fullscreenChange(e, game_container) {
                     right_mouse_up_controller()
                 }
 			});
-		
 
-		
+
+
 		// start_socket_transfer(socket)
 		return
 	}
-	
+
 	// 解除监听器
 	document.removeEventListener("mousemove", mouseListener);
 	window.socket.close()
@@ -90,7 +90,7 @@ function mouseListener(e) {
 		0;
 		active_map["movementX"] = -movementX/yaw_factor
 		active_map["movementY"] = movementY/pitch_factor
-		
+
 }
 
 
@@ -114,5 +114,5 @@ function pointerLockError() {
 }
 
 function get_instruction() {
-	
+
 }

@@ -1,14 +1,12 @@
-# rmul24_gazebo_simulator
-
-> **仍在开发中，更新频率较快且不稳定，不考虑向前兼容。请谨慎使用**
+# rmu_gazebo_simulator
 
 ## 简介
 
-rmul24_gazebo_simulator 是基于 Gazebo (Ignition 字母版本) 的仿真环境，为 RoboMaster University League 中的机器人算法开发提供仿真环境，方便测试 AI 算法，加快开发效率。
+rmu_gazebo_simulator 是基于 Gazebo (Ignition 字母版本) 的仿真环境，为 RoboMaster University 中的机器人算法开发提供仿真环境，方便测试 AI 算法，加快开发效率。
 
-目前 rmul24_gazebo_simulator 提供以下功能：
+目前 rmu_gazebo_simulator 提供以下功能：
 
-- RMUL2024、RMUC2024 仿真世界模型
+- rmul_2024、rmuc_2024、rmuc_2025 仿真世界模型
 
 - 网页端局域网联机对战
 
@@ -34,7 +32,7 @@ git clone https://github.com/SMBU-PolarBear-Robotics-Team/rmoss_interfaces.git
 git clone https://github.com/SMBU-PolarBear-Robotics-Team/rmoss_core.git
 git clone https://github.com/SMBU-PolarBear-Robotics-Team/rmoss_gazebo.git
 git clone https://github.com/SMBU-PolarBear-Robotics-Team/rmoss_gz_resources.git --depth=1
-git clone https://github.com/SMBU-PolarBear-Robotics-Team/rmul24_gazebo_simulator.git
+git clone https://github.com/SMBU-PolarBear-Robotics-Team/rmu_gazebo_simulator.git
 git clone https://github.com/SMBU-PolarBear-Robotics-Team/pb2025_robot_description.git
 
 pip install xmacro
@@ -50,7 +48,7 @@ colcon build --symlink-install
 - 启动仿真环境
 
     ```sh
-    ros2 launch rmul24_gazebo_simulator bringup_sim.launch.py
+    ros2 launch rmu_gazebo_simulator bringup_sim.launch.py
     ```
 
     **注意：需要点击 Gazebo 左下角橙红色的 `启动` 按钮**
@@ -87,7 +85,7 @@ colcon build --symlink-install
     <http://localhost:5000/>
 
     ```sh
-    python3 src/rmul24_gazebo_simulator/scripts/player_web/main_no_vision.py
+    python3 src/rmu_gazebo_simulator/scripts/player_web/main_no_vision.py
     ```
 
   - 裁判系统端
@@ -95,7 +93,7 @@ colcon build --symlink-install
     <http://localhost:2350/>
 
     ```sh
-    python3 src/rmul24_gazebo_simulator/scripts/referee_web/main.py
+    python3 src/rmu_gazebo_simulator/scripts/referee_web/main.py
     ```
 
 ### 1.3 切换仿真世界
@@ -114,4 +112,4 @@ colcon build --symlink-install
 
 Maintainer: Lihan Chen, <lihanchen2004@163.com>
 
-rmul24_gazebo_simulator is provided under Apache License 2.0.
+rmu_gazebo_simulator is provided under Apache License 2.0.

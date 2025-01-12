@@ -6,7 +6,7 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    pkg_simulator = get_package_share_directory("rmul24_gazebo_simulator")
+    pkg_simulator = get_package_share_directory("rmu_gazebo_simulator")
 
     referee_config_path = os.path.join(
         pkg_simulator, "config", "referee_system_1v1.yaml"
@@ -35,7 +35,7 @@ def generate_launch_description():
     )
 
     referee_system = Node(
-        package="rmul24_gazebo_simulator",
+        package="rmu_gazebo_simulator",
         executable="simple_competition_1v1.py",
         namespace="referee_system",
         parameters=[referee_config_path],

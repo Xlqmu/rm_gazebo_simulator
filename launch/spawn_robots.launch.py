@@ -1,11 +1,13 @@
 import os
+
 import yaml
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch_ros.actions import Node
 from launch.actions import ExecuteProcess
+from launch_ros.actions import Node
 from nav2_common.launch import ReplaceString
 from xmacro.xmacro4sdf import XMLMacro4sdf
+
 from sdformat_tools.urdf_generator import UrdfGenerator
 
 
@@ -18,7 +20,7 @@ def generate_launch_description():
     #              https://github.com/ros2/launch_ros/issues/56
     remappings = [("/tf", "tf"), ("/tf_static", "tf_static")]
 
-    pkg_simulator = get_package_share_directory("rmul24_gazebo_simulator")
+    pkg_simulator = get_package_share_directory("rmu_gazebo_simulator")
     pkg_pb2025_robot_description = get_package_share_directory(
         "pb2025_robot_description"
     )

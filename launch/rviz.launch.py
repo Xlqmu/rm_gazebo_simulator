@@ -14,7 +14,7 @@ def generate_launch_description():
         arguments=[
             "-d",
             os.path.join(
-                get_package_share_directory("rmul24_gazebo_simulator"),
+                get_package_share_directory("rmu_gazebo_simulator"),
                 "rviz",
                 "visualize.rviz",
             ),

@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <package format="2">
-	<name>rmul24_gazebo_simulator</name>
+	<name>rmu_gazebo_simulator</name>
 	<version>1.0.0</version>
-	<description>rmul24_gazebo_simulator</description>
+	<description>rmu_gazebo_simulator</description>
 
 	<maintainer email="lihanchen2004@163.com">Lihan Chen</maintainer>
-	<license>MIT</license>
+	<license>Apache-2.0</license>
 
 	<buildtool_depend>ament_cmake</buildtool_depend>
 

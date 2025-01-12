@@ -1,4 +1,5 @@
 import os
+
 import yaml
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
@@ -7,7 +8,7 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 
 def generate_launch_description():
-    pkg_simulator = get_package_share_directory("rmul24_gazebo_simulator")
+    pkg_simulator = get_package_share_directory("rmu_gazebo_simulator")
 
     gz_world_path = os.path.join(pkg_simulator, "config", "gz_world.yaml")
     with open(gz_world_path, "r") as file:

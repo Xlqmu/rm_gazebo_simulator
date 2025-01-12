@@ -1,10 +1,11 @@
 import os
+
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import (
+    AppendEnvironmentVariable,
     DeclareLaunchArgument,
     IncludeLaunchDescription,
-    AppendEnvironmentVariable,
 )
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, TextSubstitution
@@ -12,7 +13,7 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    pkg_simulator = get_package_share_directory("rmul24_gazebo_simulator")
+    pkg_simulator = get_package_share_directory("rmu_gazebo_simulator")
 
     world_sdf_path = LaunchConfiguration("world_sdf_path")
     ign_config_path = LaunchConfiguration("ign_config_path")

@@ -6,7 +6,7 @@ rmu_gazebo_simulator 是基于 Gazebo (Ignition 字母版本) 的仿真环境，
 
 目前 rmu_gazebo_simulator 提供以下功能：
 
-- rmul_2024、rmuc_2024、rmuc_2025 仿真世界模型
+- rmul_2024, rmuc_2024, rmul_2025, rmuc_2025 仿真世界模型
 
 - 网页端局域网联机对战
 
@@ -36,6 +36,10 @@ git clone https://github.com/SMBU-PolarBear-Robotics-Team/rmu_gazebo_simulator.g
 git clone https://github.com/SMBU-PolarBear-Robotics-Team/pb2025_robot_description.git
 
 pip install xmacro
+```
+
+```sh
+rosdep install -r --from-paths src --ignore-src --rosdistro $ROS_DISTRO -y
 ```
 
 ```sh
@@ -98,7 +102,7 @@ colcon build --symlink-install
 
 ### 1.3 切换仿真世界
 
-修改 [gz_world.yaml](./config/gz_world.yaml) 中的 `world`。当前可选: `rmul_2024`, `rmuc_2024`
+修改 [gz_world.yaml](./config/gz_world.yaml) 中的 `world`。当前可选: `rmul_2024`, `rmuc_2024`, `rmul_2025`, `rmuc_2025`
 
 ## 配套导航仿真仓库
 

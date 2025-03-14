@@ -6,9 +6,8 @@ from launch import LaunchDescription
 from launch.actions import ExecuteProcess
 from launch_ros.actions import Node
 from nav2_common.launch import ReplaceString
-from xmacro.xmacro4sdf import XMLMacro4sdf
-
 from sdformat_tools.urdf_generator import UrdfGenerator
+from xmacro.xmacro4sdf import XMLMacro4sdf
 
 
 def generate_launch_description():
@@ -29,7 +28,7 @@ def generate_launch_description():
         pkg_pb2025_robot_description,
         "resource",
         "xmacro",
-        "pb2025_sentry_robot.sdf.xmacro",
+        "simulation_robot.sdf.xmacro",
     )
     bridge_config = os.path.join(pkg_simulator, "config", "ros_gz_bridge.yaml")
     robot_config = os.path.join(pkg_simulator, "config", "base_params.yaml")

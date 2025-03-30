@@ -110,7 +110,7 @@ python3 src/rmu_gazebo_simulator/scripts/referee_web/main.py
 
 #### 2.4.3 切换仿真世界
 
-修改 [gz_world.yaml](./config/gz_world.yaml) 中的 `world`。当前可选: `rmul_2024`, `rmuc_2024`, `rmul_2025`, `rmuc_2025`
+修改 [gz_world.yaml](./rmu_gazebo_simulator/config/gz_world.yaml) 中的 `world`。当前可选: `rmul_2024`, `rmuc_2024`, `rmul_2025`, `rmuc_2025`
 
 ## 配套导航仿真仓库
 

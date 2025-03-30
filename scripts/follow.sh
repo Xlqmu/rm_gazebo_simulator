@@ -9,7 +9,7 @@ ign service -s /gui/follow \
   --timeout 1000
 
 ign service -s /gui/follow/offset \
-  -r "x: -0.8, y: 0.0, z: 1.2" \
+  -r "x: -0.8, y: 0.0, z: 2.0" \
   --reqtype ignition.msgs.Vector3d \
   --reptype ignition.msgs.Boolean \
   --timeout 1000

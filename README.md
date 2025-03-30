@@ -18,13 +18,34 @@ rmu_gazebo_simulator 是基于 Gazebo (Ignition 字母版本) 的仿真环境，
 
 ## 2. Quick Start
 
-### 2.1 Setup Environment
+### 2.1 Option 1: Docker
+
+#### 2.1.1 Setup Environment
+
+- [Docker](https://docs.docker.com/engine/install/)
+- [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
+
+```bash
+docker run -it --rm --name rmu_gazebo_simulator \
+  --network host \
+  --runtime nvidia \
+  --gpus all \
+  -e NVIDIA_DRIVER_CAPABILITIES=all \
+  -e "DISPLAY=$DISPLAY" \
+  -v /tmp/.X11-unix:/tmp/.X11-unix \
+  -v /dev:/dev \
+  ghcr.io/SMBU-PolarBear-Robotics-Team/rmu_gazebo_simulator_docker:latest
+```
+
+### 2.2 Option 2: Build From Source
+
+#### 2.2.1 Setup Environment
 
 - Ubuntu 22.04
 - ROS: [Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)
 - Ignition: [Fortress](https://gazebosim.org/docs/fortress/install_ubuntu/)
 
-### 2.2 Create Workspace
+#### 2.2.2 Create Workspace
 
 ```bash
 sudo pip install vcstool2
@@ -44,7 +65,7 @@ git clone https://github.com/SMBU-PolarBear-Robotics-Team/rmu_gazebo_simulator.g
 vcs import src < src/rmu_gazebo_simulator/dependencies.repos
 ```
 
-### 2.3 Build
+#### 2.2.3 Build
 
 ```sh
 rosdep install -r --from-paths src --ignore-src --rosdistro $ROS_DISTRO -y
@@ -54,7 +75,7 @@ rosdep install -r --from-paths src --ignore-src --rosdistro $ROS_DISTRO -y
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=release
 ```
 
-### 2.4 Running
+### 2.3 Running
 
 启动仿真环境
 
@@ -65,7 +86,7 @@ ros2 launch rmu_gazebo_simulator bringup_sim.launch.py
 > [!NOTE]
 > **注意：需要点击 Gazebo 左下角橙红色的 `启动` 按钮**
 
-#### 2.4.1 Test Commands
+#### 2.3.1 Test Commands
 
 控制机器人移动
 
@@ -88,7 +109,7 @@ ros2 run rmoss_gz_base test_shoot_cmd.py --ros-args -r __ns:=/red_standard_robot
 #根据提示进行输入
 ```
 
-#### 2.4.2 网页端控制
+#### 2.3.2 网页端控制
 
 支持局域网内联机操作，只需要将 localhost 改为主机 ip 即可。
 
@@ -97,7 +118,7 @@ ros2 run rmoss_gz_base test_shoot_cmd.py --ros-args -r __ns:=/red_standard_robot
 <http://localhost:5000/>
 
 ```sh
-python3 src/rmu_gazebo_simulator/scripts/player_web/main_no_vision.py
+python3 src/rmu_gazebo_simulator/rmu_gazebo_simulator/scripts/player_web/main_no_vision.py
 ```
 
 裁判系统端
@@ -105,10 +126,10 @@ python3 src/rmu_gazebo_simulator/scripts/player_web/main_no_vision.py
 <http://localhost:2350/>
 
 ```sh
-python3 src/rmu_gazebo_simulator/scripts/referee_web/main.py
+python3 src/rmu_gazebo_simulator/rmu_gazebo_simulator/scripts/referee_web/main.py
 ```
 
-#### 2.4.3 切换仿真世界
+#### 2.3.3 切换仿真世界
 
 修改 [gz_world.yaml](./rmu_gazebo_simulator/config/gz_world.yaml) 中的 `world`。当前可选: `rmul_2024`, `rmuc_2024`, `rmul_2025`, `rmuc_2025`
 

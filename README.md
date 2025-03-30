@@ -24,6 +24,13 @@ rmu_gazebo_simulator 是基于 Gazebo (Ignition 字母版本) 的仿真环境，
 
 - [Docker](https://docs.docker.com/engine/install/)
 - [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
+- 允许本地的 Docker 容器访问主机的 X11 显示
+
+    ```bash
+    xhost +local:docker
+    ```
+
+#### 2.1.2 Create Container
 
 ```bash
 docker run -it --rm --name rmu_gazebo_simulator \
@@ -34,7 +41,7 @@ docker run -it --rm --name rmu_gazebo_simulator \
   -e "DISPLAY=$DISPLAY" \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   -v /dev:/dev \
-  ghcr.io/smbu-polarbear-robotics-team/rmu_gazebo_simulator:latest
+  ghcr.io/smbu-polarbear-robotics-team/rmu_gazebo_simulator:1.0.0
 ```
 
 ### 2.2 Option 2: Build From Source

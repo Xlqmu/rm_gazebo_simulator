@@ -6,7 +6,7 @@ repositories:
   rmoss_interfaces:
     type: git
     url: https://github.com/SMBU-PolarBear-Robotics-Team/rmoss_interfaces.git
-    version: 7443ff06c345752d0e23172c479d99b27207e2c7
+    version: 424f50c831b3e74fa72446969362cdabb2e22cd1
   rmoss_core:
     type: git
     url: https://github.com/SMBU-PolarBear-Robotics-Team/rmoss_core.git

@@ -11,8 +11,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
-        with:
-          lfs: true
 
       - name: Build rmu_gazebo_simulator
         uses: ros-tooling/action-ros-ci@v0.3

@@ -34,7 +34,7 @@ docker run -it --rm --name rmu_gazebo_simulator \
   -e "DISPLAY=$DISPLAY" \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   -v /dev:/dev \
-  ghcr.io/SMBU-PolarBear-Robotics-Team/rmu_gazebo_simulator:latest
+  ghcr.io/smbu-polarbear-robotics-team/rmu_gazebo_simulator:latest
 ```
 
 ### 2.2 Option 2: Build From Source

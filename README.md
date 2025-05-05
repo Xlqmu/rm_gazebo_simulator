@@ -54,9 +54,11 @@ docker run -it --rm --name rmu_gazebo_simulator \
 
 #### 2.2.2 Create Workspace
 
+由于ubuntu24.04对于python环境的保护，所以不直接用pip,同时又不想用虚拟环境，所以就用pipx包管理器了
+
 ```bash
-sudo pip install vcstool2
-pip install xmacro
+sudo pipx install vcstool2
+pipx install xmacro
 ```
 
 ```bash

@@ -67,7 +67,7 @@ cd ~/ros_ws
 ```
 
 ```bash
-git clone https://github.com/Xlqmu/rmu_gazebo_simulator.git src/rmu_gazebo_simulator
+git clone https://github.com/Xlqmu/rm_gazebo_simulator.git src/rmu_gazebo_simulator
 ```
 
 ```bash
